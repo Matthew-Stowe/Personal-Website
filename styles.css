@@ -1,0 +1,76 @@
+@keyframes spinning{
+    from{ transform: rotate(0deg)} 
+    to {transform: rotate(360deg);}
+}
+
+@-webkit-keyframes fadeinout {
+    0%,100% { opacity: 0; }
+    5%, 95% { opacity: 1; }
+  }
+  
+  @keyframes fadeinout {
+    0%,100% { opacity: 0; }
+    5%, 95% { opacity: 1; }
+  }
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.spin{
+    animation-name: spinning;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#Parent{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#Outer-Wheel{
+    width: 250px;
+    height: 250px;
+    position: relative;
+}
+
+#Inner-Wheel{
+    rotate: 270deg;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 20px;
+    left: 27px;
+}
+
+#About-Section{
+    position: relative;
+    border-width: 2px;
+    border-color: grey;
+    border-radius: 5%;
+    border-style: solid;
+    width: 500px;
+    height: fit-content;
+    top: 10px;
+    left: 250px;
+    -webkit-animation: fadeinout 5s linear forwards;
+    animation: fadeinout 5s linear forwards;
+    animation-iteration-count: infinite;
+}
+
+.About-Image{
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    top: 10px;
+}
+
+#About-Text{
+    position: relative;
+    margin-Left: 70px;
+    margin-right: 70px;
+    top: 0;
+}
