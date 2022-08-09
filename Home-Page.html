@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EuclidMap</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="Images/logo.png">
+    </head>
+    <body>
+        <div id="psuedo-header">
+            <div class="img" style="float: right;">
+                <input onclick="OpenRightSideBar()" type="image" id="dot-img" src="Images/3-dot-shape.png">
+            </div>
+        </div>
+
+        <div id="Right-SideBar" class="SideBar">
+            <div id="right-link-div" style="visibility: hidden;">
+                <a class = "LinkTitle"><b>SOCIAL MEDIA LINKS</b></a>
+                <button onclick="CloseRightSideBar();" class="Button-Close" id="Left-SideBar-Close">&times;</button>
+                <button onclick="window.open('https://www.instagram.com/','__self')" class="LinkItem"><img id="Link-4" class="link-img" src="Images/logo-Instagram.png"></button>
+                <button onclick="window.open('https://www.youtube.com/','__self')" class="LinkItem"><img id="Link-5" class="link-img" src="Images/logo-Youtube.png"></button>
+                <button onclick="window.open('https://github.com/','__self')" class="LinkItem"><img id="Link-6" class="link-img" src="Images/logo-GitHub.png"></button>
+                <button onclick="window.open('/OtherPages/index.html','__self')" class="LinkItem"><img id="Link-6" class="link-img" src="Images/logo-FaceBook.png"></button>
+            </div>
+        </div>
+
+        <div class="container" id="container-1">
+            <p>
+                <h1><b><u>Who Am I?</u></b></h1>
+            </p>
+            <p>
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            </p>
+        </div>
+        <div class="container-img" id="container-img-center">
+            <img id="container-img-Graph" src="Images/Example-1.png">
+            <img id="container-img-Zoom" src="Images/Example-2.gif">
+        </div>
+        <header id="header-blur">
+            <h1><u>Matthew Stowe</u></h1>
+        </header>
+    </body>
+
+    <script src="SliderBar.js"></script>
+</html>
