@@ -1,4 +1,4 @@
-const ContactInfoString = `<img id="Email-Icon" class="About-Image" src="images/584856b4e0bb315b0f7675ac.png">
+const ContactInfoString = `<img id="Email-Icon" class="About-Image" src="../images/584856b4e0bb315b0f7675ac.png">
 <div id="About-Text">
     <h1><b>Contact Info</b></h1>
     <p>Mobile: 07377 627858</p>
@@ -7,7 +7,7 @@ const ContactInfoString = `<img id="Email-Icon" class="About-Image" src="images/
     <p>Stack Overflow: /users/197228833/matthew-stowe</p>
 </div>`
 
-const LocationString = `<img id="AboutMe-Icon" class="About-Image" src="images/LocationPointer.png">
+const LocationString = `<img id="AboutMe-Icon" class="About-Image" src="../images/LocationPointer.png">
 <div id="About-Text">
     <h1><b>Location Info</b></h1>
     <p>County: Cornwall</p>
@@ -15,7 +15,7 @@ const LocationString = `<img id="AboutMe-Icon" class="About-Image" src="images/L
     <p>Employment: Currently Not Employed</p>
 </div>`
 
-const AboutMeString = `<img id="AboutMe-Icon" class="About-Image" src="images/AboutMeIcon.png">
+const AboutMeString = `<img id="AboutMe-Icon" class="About-Image" src="../images/AboutMeIcon.png">
 <div id="About-Text">
     <h1><b>About Me</b></h1>
     <p>Name: Matthew Stowe</p>
