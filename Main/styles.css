@@ -1,0 +1,152 @@
+/* 
+Colours:
+        Background -            #1F1F1F
+        Slight Background -     #2c2c2c
+        Text colour -           #c2b7b5
+        Select Colour -         #F26C4F
+*/
+
+/* Roboto Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+
+/* Main Body Items */
+
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #1F1F1F;
+    color: #c2b7b5;
+}
+
+h1{
+    font-size: 5vh;
+    color: white;
+}
+
+
+/* Center Title Items */
+
+.Center-Title{
+    position: relative;
+    justify-content: center;
+    display: flex;
+    margin-top: 10vh;
+}
+
+#Center-Image{
+    width: 333px;
+    height: 62px;
+}
+
+#Me-Image{
+    width: 248px;
+    height: 350px;
+    margin-left: 45px;
+    margin-top: -110px;
+}
+
+/* Header Items */
+
+header{
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    border-bottom: 1px solid #c2b7b5;
+}
+
+.Header-Item{
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.Header-Item:hover{
+    color: #F26C4F;
+    cursor: pointer;
+}
+
+
+/* Info Box */
+
+.Info-Box{
+    border: 1px solid #c2b7b5;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: #202020;
+    height: 570px;
+}
+
+
+/* Spinning Wheel */
+
+@keyframes spinning{
+    from{ transform: rotate(0deg)} 
+    to {transform: rotate(360deg);}
+}
+
+@-webkit-keyframes fadeinout {
+    0%,100% { opacity: 0; }
+    5%, 95% { opacity: 1; }
+  }
+  
+  @keyframes fadeinout {
+    0%,100% { opacity: 0; }
+    5%, 95% { opacity: 1; }
+  }
+
+.spin{
+    animation-name: spinning;
+    animation-duration: 25s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#Parent{
+    position: absolute;
+}
+
+#Outer-Wheel{
+    width: 250px;
+    height: 250px;
+    position: relative;
+}
+
+#Inner-Wheel{
+    rotate: 270deg;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 20px;
+    left: 27px;
+}
+
+#About-Section{
+    position: relative;
+    border-width: 2px;
+    border-color: grey;
+    border-radius: 5%;
+    border-style: solid;
+    width: 500px;
+    height: fit-content;
+    top: 10px;
+    left: 250px;
+    -webkit-animation: fadeinout 25s linear forwards;
+    animation: fadeinout 25s linear forwards;
+    animation-iteration-count: infinite;
+}
+
+.About-Image{
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    top: 10px;
+}
+
+#About-Text{
+    position: relative;
+    margin-Left: 70px;
+    margin-right: 70px;
+    top: 0;
+}
