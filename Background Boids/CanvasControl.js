@@ -31,8 +31,10 @@ function draw(){
         for(let i of Shapes){
             i.follow(Shapes);
             i.update();
+            i.CheckBorders();
             i.show();
         }
+
     }, (1000 / fps))
 }
 
