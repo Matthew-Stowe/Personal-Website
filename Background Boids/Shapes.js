@@ -1,7 +1,11 @@
+//Optimisation:
+//  Spacial Sub Division
+
 //Using Shapes as boids
 class Shape {
-    constructor(context){
+    constructor(context, canvas){
         //Descriptions
+        this.canvas = canvas
         this.ctx = context;
         this.radius = RndInt(0,3)
         this.position = new Vector(RndInt(0,window.innerWidth),RndInt(0,window.innerHeight))
@@ -10,11 +14,13 @@ class Shape {
         this.maxVelo = 3;
         this.maxForce = .1;
         this.maxCohesion = .01;
-        this.maxSeperationForce = .1;
+        this.maxSeperationForce = .2;
+        this.shapeType = RndInt(0,1)
+        this.colour = RndInt(0,1)
     }
 
   align(boids){
-    var ViewDistance = 50;                              //how far boid can view
+    var ViewDistance = 25;                              //how far boid can view
 
     var average = new Vector(0,0);                        //average veloctity of passed boid velocities
     var AverageTotal = 0;                                 //keeps track of total boids averaged inside radius check
@@ -139,23 +145,33 @@ class Shape {
   }
 
   CheckBorders(){                                 //moves to otherside of canvas if outside canvas bounds
-    if(this.position.x > window.innerWidth){
+    if(this.position.x > this.canvas.width){
       this.position.x = 0;
     }
     if(this.position.x < 0){
-      this.position.x = window.innerWidth;
+      this.position.x = this.canvas.width;
     }
 
-    if(this.position.y > window.innerHeight){
+    if(this.position.y > this.canvas.height){
       this.position.y = 0;
     }
     if(this.position.y < 0){
-      this.position.y = window.innerHeight;
+      this.position.y = this.canvas.height;
     }
   }
 
   show(){
-    drawCircle(ctx, this.position.x, this.position.y, 3, 'white', 'white', this.radius)
+    switch(this.shapeType){
+      case 0:
+        drawCircle(ctx, this.position.x, this.position.y, 3, Colours[this.colour], Colours[this.colour], this.radius)
+        break;
+      
+      case 1:
+        DrawTri(ctx, this.position.x, this.position.y, 1, Colours[this.colour], Colours[this.colour])
+        break;
+    }
+    // drawCircle(ctx, this.position.x, this.position.y, 3, 'white', 'white', this.radius)
+    // DrawTri(ctx, this.position.x, this.position.y, 2, "white", "white")
   }
 
   update(){
@@ -184,3 +200,23 @@ function drawCircle(ctx, x, y, radius, fill, stroke, strokeWidth) {
 function RndInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
+
+//Basic function to draw a triangle
+function DrawTri(ctx,x,y,scalar,fill,stroke){
+
+  ctx.beginPath()
+  ctx.moveTo(x+(0*scalar), y+(5*scalar))
+  ctx.lineTo(x+(5*scalar), y+(0*scalar))
+  ctx.lineTo(x+(10*scalar), y+(5*scalar))
+  ctx.lineTo(x+(0*scalar), y+(5*scalar))
+  ctx.stroke()
+  ctx.closePath()
+
+  ctx.strokeStyle = stroke
+  ctx.stroke()
+
+  ctx.fillStyle = fill
+  ctx.fill()
+}
+
+var Colours = ["#c2b7b5", "#F26C4F"]

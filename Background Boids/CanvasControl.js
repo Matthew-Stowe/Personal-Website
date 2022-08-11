@@ -1,9 +1,13 @@
 var canvas = document.getElementById("Background");
 var ctx = canvas.getContext("2d");
 
-//runs on window load
-var Width = window.innerWidth;
-var Height = window.innerHeight;
+// //runs on window load
+// var Width = window.innerWidth;
+// var Height = window.innerHeight;
+
+// runs on window load
+var Width = 1920;
+var Height = 1080;
 
 //sets canvas to size of window
 canvas.width = Width;
@@ -15,7 +19,7 @@ var Shapes = [];
 
 //creates array of MaxShapes length of Shapes  
 for(i=0; i<MaxShapes; i++){
-    Shapes.push(new Shape(ctx))
+    Shapes.push(new Shape(ctx, canvas))
 }
 
 var fps = 60;
