@@ -5,18 +5,18 @@ class Shape {
         this.ctx = context;
         this.radius = RndInt(0,3)
         this.position = new Vector(RndInt(0,window.innerWidth),RndInt(0,window.innerHeight))
-        this.velocity = new Vector(RndInt(-3,3),RndInt(-3,3));
+        this.velocity = new Vector(RndInt(-2,2),RndInt(-2,2));
         this.acceleration = new Vector(0,0);
-        this.maxVelo = new Vector(10,10);
-        this.maxAcell = new Vector(2,2);
-        // this.AlignForce = new Vector(0,0)
+        this.maxVelo = 3;
+        this.maxForce = .1;
     }
 
   align(boids){
-    var ViewDistance = 100;                              //how far boid can view
+    var ViewDistance = 50;                              //how far boid can view
 
     var average = new Vector(0,0);                        //average veloctity of passed boid velocities
     var AverageTotal = 0;                                 //keeps track of total boids averaged inside radius check
+    var Force = new Vector(0,0);
 
     for(let Surrounding of boids){
       var Delta = this.position.distance(Surrounding.position)
@@ -30,22 +30,30 @@ class Shape {
       average.x = average.x / AverageTotal
       average.y = average.y / AverageTotal
 
-      this.velocity = average
+      Force.x = (average.x - this.velocity.x)             //sub method for vectors does not want to work?
+      Force.y = (average.y - this.velocity.y)
+
+      //Limits Force
+      Force.limitMag(this.maxForce)
     }
+
+    return Force
+  }
+
+  follow(boids){
+    let alignment = this.align(boids)
+    this.acceleration.add(alignment);
   }
 
   show(){
-    drawCircle(ctx, this.position.x, this.position.y, 10, 'white', 'white', this.radius)
+    drawCircle(ctx, this.position.x, this.position.y, 3, 'white', 'white', this.radius)
   }
 
   update(){
-    this.position.x += this.velocity.x
-    this.position.y += this.velocity.y
-
-
-
-    this.velocity.x += this.acceleration.x
-    this.velocity.y += this.acceleration.y
+    this.position.add(this.velocity);
+    this.velocity.add(this.acceleration);
+    this.velocity.limitMag(this.maxVelo);
+    // console.log(this.velocity)
   }
 }
 

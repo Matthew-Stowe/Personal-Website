@@ -18,17 +18,22 @@ for(i=0; i<MaxShapes; i++){
     Shapes.push(new Shape(ctx))
 }
 
+var fps = 60;
 
 //main animation loop
 function draw(){
-    ctx.clearRect(0,0,Width,Height);
-    for(let i of Shapes){
-        i.align(Shapes)
-        i.update();
-        i.show();
-    }
 
-    window.requestAnimationFrame(draw);
+    setTimeout(function(){                                  //fps limiting
+
+        window.requestAnimationFrame(draw);
+
+        ctx.clearRect(0,0,Width,Height);
+        for(let i of Shapes){
+            i.follow(Shapes);
+            i.update();
+            i.show();
+        }
+    }, (1000 / fps))
 }
 
 window.requestAnimationFrame(draw);
