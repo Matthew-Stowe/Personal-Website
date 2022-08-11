@@ -22,8 +22,8 @@ for(i=0; i<MaxShapes; i++){
 //main animation loop
 function draw(){
     ctx.clearRect(0,0,Width,Height);
-    for(i of Shapes){
-        i.followBoids(Shapes);
+    for(let i of Shapes){
+        i.align(Shapes)
         i.update();
         i.show();
     }
